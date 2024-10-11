@@ -3,7 +3,7 @@
 <ul>
     {{ range .notes }}
     <li>
-        <strong>{{ .Content }}</strong><br>
+        <strong>{{ truncate .Content 30 }}</strong><br>
         Created At: {{ .CreatedAt.Format "2006-01-02 15:04:05" }}<br>
         Updated At: {{ .UpdatedAt.Format "2006-01-02 15:04:05" }}<br>
         <a href="/edit/{{ .ID }}">[Edit]</a>
