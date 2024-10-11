@@ -1,0 +1,17 @@
+{{ template "header.html" . }}
+<h1>Notes</h1>
+<ul>
+    {{ range .notes }}
+    <li>
+        <strong>{{ .Content }}</strong><br>
+        Created At: {{ .CreatedAt.Format "2006-01-02 15:04:05" }}<br>
+        Updated At: {{ .UpdatedAt.Format "2006-01-02 15:04:05" }}<br>
+        <a href="/edit/{{ .ID }}">[Edit]</a>
+        <a href="/delete/{{ .ID }}">[Delete]</a>
+    </li>
+    {{ else }}
+    <li>No notes found.</li>
+    {{ end }}
+</ul>
+<a href="/add" class="add-btn">Add Note</a>
+{{ template "footer.html" . }}

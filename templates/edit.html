@@ -1,0 +1,16 @@
+{{ template "header.html" . }}
+<h1>Edit Note</h1>
+{{ if .error }}
+<div class="alert alert-danger" role="alert">
+    {{ .error }}
+</div>
+{{ end }}
+<form action="/edit/{{ .ID }}" method="POST">
+    <div class="form-group">
+        <label for="content">Note Content</label>
+        <textarea class="form-control" id="content" name="content" rows="4" required>{{ .Content }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Note</button>
+</form>
+<a href="/" class="btn btn-secondary mt-3">Back to List</a>
+{{ template "footer.html" . }}
